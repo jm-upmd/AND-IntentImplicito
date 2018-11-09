@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void verPaginaWeb() {
         if(mTexto.getText().toString().length() != 0){
-            Uri paginaWeb = Uri.EMPTY.parse(mTexto.getText().toString());
+            Uri paginaWeb = Uri.parse(mTexto.getText().toString());
 
             // Intent implicito, sólo indicamos la acción a realizar. En este caso la acción
             // es una de las predefinidas por Android (Intent.ACTION_VIEW), que al indicar
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_VIEW,paginaWeb);
             // Verificamos si el itent puede ser despachado por alguna actividad
             if (intent.resolveActivity(getPackageManager()) != null){
+                // Enviamos intent al systema Android para que arranque la activity(ies) que corresponda
                 startActivity(intent);
             } else {
                 Toast.makeText(this,"No hay ninguna actividad disponible",Toast.LENGTH_LONG).show();
