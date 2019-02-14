@@ -5,9 +5,13 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class MainActivity extends AppCompatActivity {
     Button mBotonCompartir;
@@ -31,8 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     private void verPaginaWeb() {
-        if(mTexto.getText().toString().length() != 0){
+
+        String url = mTexto.getText().toString();
+
+          if(URLUtil.isValidUrl(url)){ // Si formato de la url es correcto
+
             Uri paginaWeb = Uri.parse(mTexto.getText().toString());
 
             // Intent implicito, sólo indicamos la acción a realizar. En este caso la acción
@@ -49,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this,"No hay ninguna actividad disponible",Toast.LENGTH_LONG).show();
             }
+        } else {
+            Toast.makeText(this,"Formato URL incorrecto. Debe escribire http://nombre...",Toast.LENGTH_LONG).show();
         }
     }
 }

@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Intent Implicito</string>
-    <string name="txt_etiqueta">Escribe la url de la página a visitar:</string>
+    <string name="txt_etiqueta">
+        Escribe la url de la página a visitar.\n
+        Debes escribirla completamente ejemplo:\n http://google.com
+
+    </string>
     <string name="txt_btn">Ver página Web</string>
+    <string name="url_default">http://formacion.infoupa.org</string>
 </resources>
